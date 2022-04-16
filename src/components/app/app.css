@@ -1,0 +1,13 @@
+.app {
+  margin: auto;
+  text-align: center;
+  width: 800px;
+}
+
+ul {
+  list-style: none;
+}
+
+.hidden {
+  display: none;
+}
