@@ -26,22 +26,21 @@ let toppings = [
   'Parmesan Asiago Cheese',
 ];
 const Toppings = (props) => {
-  function handleChange(e) {
-    if (e.target.checked) {
-      props.onChange(e.target.value);
-    }
-    if (!e.target.checked) {
-      props.onRemove(e.target.value);
-    }
-  }
-
   return (
     <div className='toppings'>
       <div>What toppings would you like?</div>
       <form>
         {toppings.map((i) => {
           return (
-            <label key={i} onChange={handleChange} value={i}>
+            <label
+              key={i}
+              onChange={(e) =>
+                e.target.checked
+                  ? props.onChange(e.target.value)
+                  : props.onRemove(e.target.value)
+              }
+              value={i}
+            >
               <input key={i} type='checkbox' value={i} />
               {i}
             </label>
