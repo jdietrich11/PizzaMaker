@@ -15,36 +15,16 @@ const App = () => {
   const [amount, setAmount] = useState('normal');
   const [toppings, setToppings] = useState([]);
 
-  function handleSizeChange(newValue) {
-    setSize(newValue);
-  }
-  function handleCheeseChange(newValue) {
-    setCheese(newValue);
-  }
-
-  function handleSauceChange(newValue) {
-    setSauce(newValue);
-  }
-  function handleAmountChange(newVal) {
-    setAmount(newVal);
-  }
-  function handleToppingChange(newVal) {
-    setToppings([...toppings, `${newVal} `]);
-  }
-  function handleRemove(newVal) {
-    setToppings(toppings.filter((e) => e !== `${newVal} `));
-  }
-
   return (
     <div className='app'>
-      <Sizes value={size} onChange={handleSizeChange} />
-      <Cheese value={cheese} onChange={handleCheeseChange} />
-      <Sauces value={sauce} onChange={handleSauceChange} />
-      <Amount value={amount} onChange={handleAmountChange} />
+      <Sizes value={size} onChange={(e) => setSize(e)} />
+      <Cheese value={cheese} onChange={(e) => setCheese(e)} />
+      <Sauces value={sauce} onChange={(e) => setSauce(e)} />
+      <Amount value={amount} onChange={(e) => setAmount(e)} />
       <Toppings
         value={toppings}
-        onChange={handleToppingChange}
-        onRemove={handleRemove}
+        onChange={(e) => setToppings([...toppings, `${e} `])}
+        onRemove={(e) => setToppings(toppings.filter((j) => j !== `${e} `))}
       />
       <br /> <br />
       <div>
